@@ -5,6 +5,7 @@ import epa.patiem.ticketbooking.model.mongo.UserAccount;
 import epa.patiem.ticketbooking.model.sql.SqlUser;
 import epa.patiem.ticketbooking.model.sql.SqlUserAccount;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -13,10 +14,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-@RequiredArgsConstructor
 public class UserConverter {
 
-    private final TicketConverter ticketConverter;
+    @Autowired
+    private TicketConverter ticketConverter;
 
     public List<User> convert(List<SqlUser> users) {
         return users.stream()

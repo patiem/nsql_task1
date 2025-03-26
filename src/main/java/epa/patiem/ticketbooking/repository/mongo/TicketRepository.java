@@ -1,19 +1,27 @@
 package epa.patiem.ticketbooking.repository.mongo;
 
-import epa.patiem.ticketbooking.model.mongo.Category;
+import epa.patiem.ticketbooking.model.aggregation.TicketCountByCategory;
+import epa.patiem.ticketbooking.model.aggregation.TicketCountByEvent;
 import epa.patiem.ticketbooking.model.mongo.Ticket;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface TicketRepository extends MongoRepository<Ticket, ObjectId> {
 
-    Page<Ticket> getAllByUserId(Pageable pageable, Long userId);
+    @Aggregation(pipeline = {
+            "{ '$group': { '_id': '$category', 'count': { '$sum': 1 } } }",
+            "{ '$project': { 'category': '$_id', 'count': 1, '_id': 0 } }"
+    })
+    List<TicketCountByCategory> countTicketsByCategory();
 
-    Page<Ticket> getAllByEventId(Pageable pageable, Long eventId);
-
-    Boolean existsByEventIdAndPlaceAndCategory(ObjectId eventId, Integer place, Category category);
+    @Aggregation(pipeline = {
+            "{ '$group': { '_id': '$event', 'count': { '$sum': 1 } } }",
+            "{ '$project': { 'event': '$_id', 'count': 1, '_id': 0 } }"
+    })
+    List<TicketCountByEvent> countTicketsByEvent();
 }

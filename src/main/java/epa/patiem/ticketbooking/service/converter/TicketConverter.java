@@ -4,15 +4,16 @@ import epa.patiem.ticketbooking.model.mongo.Category;
 import epa.patiem.ticketbooking.model.mongo.Ticket;
 import epa.patiem.ticketbooking.model.sql.SqlTicket;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-@RequiredArgsConstructor
 public class TicketConverter {
 
+    @Autowired
     private EventConverter eventConverter;
 
     public List<Ticket> convert(List<SqlTicket> tickets) {
