@@ -1,5 +1,7 @@
 package epa.patiem.ticketbooking.model.sql;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.Cacheable;
@@ -18,9 +20,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import static epa.patiem.ticketbooking.utils.Constants.DATE_FORMATTER;
-
 @Entity
+@Setter
+@Getter
 @Table(name = "events")
 @Cacheable
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -38,7 +40,6 @@ public class SqlEvent {
 
     @Column(name = "ticket_price", nullable = false)
     private BigDecimal ticketPrice;
-
 
     @OneToMany(mappedBy = "event", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private final List<SqlTicket> tickets = new ArrayList<>();
@@ -59,45 +60,9 @@ public class SqlEvent {
         this.ticketPrice = ticketPrice;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public BigDecimal getTicketPrice() {
-        return ticketPrice;
-    }
-
-    public void setTicketPrice(BigDecimal ticketPrice) {
-        this.ticketPrice = ticketPrice;
-    }
-
     public void addTicket(SqlTicket sqlTicket) {
         this.tickets.add(sqlTicket);
         sqlTicket.setEvent(this);
-    }
-
-    public List<SqlTicket> getTickets() {
-        return tickets;
     }
 
     @Override
@@ -118,7 +83,7 @@ public class SqlEvent {
         return "{" +
                 "'id' : " + id +
                 ", 'title' : '" + title + '\'' +
-                ", 'date' : '" + DATE_FORMATTER.format(date) +
+                ", 'date' : '" + date.toString() +
                 "', 'ticket_price' : " + ticketPrice +
                 "}";
     }

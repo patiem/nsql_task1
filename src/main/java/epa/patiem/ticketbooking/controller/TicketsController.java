@@ -1,13 +1,9 @@
 package epa.patiem.ticketbooking.controller;
 
 import epa.patiem.ticketbooking.model.mongo.Ticket;
-import epa.patiem.ticketbooking.model.mongo.User;
 import epa.patiem.ticketbooking.model.sql.SqlTicket;
-import epa.patiem.ticketbooking.model.sql.SqlUser;
 import epa.patiem.ticketbooking.service.TicketService;
-import epa.patiem.ticketbooking.service.UserService;
 import epa.patiem.ticketbooking.service.sql.SqlTicketService;
-import epa.patiem.ticketbooking.service.sql.SqlUserService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-/**
- * The type Tickets controller.
- */
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/tickets")

@@ -3,7 +3,6 @@ package epa.patiem.ticketbooking.model.mongo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -31,7 +30,6 @@ public class Ticket {
 
     @DBRef
     private User user;
-    private String title;
 
     @DBRef
     private Event event;
