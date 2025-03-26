@@ -1,4 +1,4 @@
-package epa.patiem.ticketbooking.model;
+package epa.patiem.ticketbooking.model.mongo;
 
 public enum Category {
     PREMIUM,

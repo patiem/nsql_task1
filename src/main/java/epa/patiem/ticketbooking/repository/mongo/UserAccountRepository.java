@@ -1,8 +1,8 @@
-package epa.patiem.ticketbooking.repository;
+package epa.patiem.ticketbooking.repository.mongo;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import epa.patiem.ticketbooking.model.UserAccount;
+import epa.patiem.ticketbooking.model.mongo.UserAccount;
 
 import java.util.Optional;
 

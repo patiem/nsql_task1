@@ -3,9 +3,9 @@ package epa.patiem.ticketbooking.service.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import epa.patiem.ticketbooking.model.UserAccount;
-import epa.patiem.ticketbooking.repository.UserAccountRepository;
-import epa.patiem.ticketbooking.repository.UserRepository;
+import epa.patiem.ticketbooking.model.mongo.UserAccount;
+import epa.patiem.ticketbooking.repository.mongo.UserAccountRepository;
+import epa.patiem.ticketbooking.repository.mongo.UserRepository;
 import epa.patiem.ticketbooking.service.UserAccountService;
 
 import java.math.BigDecimal;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import epa.patiem.ticketbooking.facade.impl.BookingFacadeImpl;
-import epa.patiem.ticketbooking.model.Event;
+import epa.patiem.ticketbooking.model.mongo.Event;
 
 import java.math.BigDecimal;
 import java.text.ParseException;

@@ -1,8 +1,18 @@
-package epa.patiem.ticketbooking.model;
+package epa.patiem.ticketbooking.model.sql;
 
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.*;
+import javax.persistence.Cacheable;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -14,7 +24,7 @@ import java.util.Objects;
 @Table(name = "users")
 @Cacheable
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class User {
+public class SqlUser {
 
     /**
      * The Id.
@@ -39,15 +49,15 @@ public class User {
      * The list of user tickets.
      */
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private final List<Ticket> tickets = new ArrayList<>();
+    private final List<SqlTicket> tickets = new ArrayList<>();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private UserAccount userAccount;
+    private SqlUserAccount sqlUserAccount;
 
     /**
      * Instantiates a new User.
      */
-    public User() {}
+    public SqlUser() {}
 
     /**
      * Instantiates a new User.
@@ -56,7 +66,7 @@ public class User {
      * @param name  the name
      * @param email the email
      */
-    public User(Long id, String name, String email) {
+    public SqlUser(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -68,7 +78,7 @@ public class User {
      * @param name  the name
      * @param email the email
      */
-    public User(String name, String email) {
+    public SqlUser(String name, String email) {
         this.name = name;
         this.email = email;
     }
@@ -131,7 +141,7 @@ public class User {
      * Gets user tickets.
      * @return tickets
      */
-    public List<Ticket> getTickets() {
+    public List<SqlTicket> getTickets() {
         return tickets;
     }
 
@@ -139,16 +149,16 @@ public class User {
      * Gets user account.
      * @return userAccount
      */
-    public UserAccount getUserAccount() {
-        return userAccount;
+    public SqlUserAccount getUserAccount() {
+        return sqlUserAccount;
     }
 
     /**
      * Sets user account.
-     * @param userAccount the user account
+     * @param sqlUserAccount the user account
      */
-    public void setUserAccount(UserAccount userAccount) {
-        this.userAccount = userAccount;
+    public void setUserAccount(SqlUserAccount sqlUserAccount) {
+        this.sqlUserAccount = sqlUserAccount;
     }
 
     /**
@@ -161,7 +171,7 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+        SqlUser user = (SqlUser) o;
         return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(email, user.email);
     }
 

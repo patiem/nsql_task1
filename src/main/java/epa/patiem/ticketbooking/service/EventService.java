@@ -1,6 +1,6 @@
 package epa.patiem.ticketbooking.service;
 
-import epa.patiem.ticketbooking.model.Event;
+import epa.patiem.ticketbooking.model.mongo.Event;
 
 import java.util.Date;
 import java.util.List;

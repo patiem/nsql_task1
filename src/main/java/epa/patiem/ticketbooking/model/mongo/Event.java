@@ -1,4 +1,4 @@
-package epa.patiem.ticketbooking.model;
+package epa.patiem.ticketbooking.model.mongo;
 
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 

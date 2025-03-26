@@ -1,6 +1,6 @@
 package epa.patiem.ticketbooking.service;
 
-import epa.patiem.ticketbooking.model.UserAccount;
+import epa.patiem.ticketbooking.model.mongo.UserAccount;
 
 import java.math.BigDecimal;
 

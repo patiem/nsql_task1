@@ -1,9 +1,9 @@
 package epa.patiem.ticketbooking.facade;
 
-import epa.patiem.ticketbooking.model.Category;
-import epa.patiem.ticketbooking.model.Event;
-import epa.patiem.ticketbooking.model.Ticket;
-import epa.patiem.ticketbooking.model.User;
+import epa.patiem.ticketbooking.model.mongo.Category;
+import epa.patiem.ticketbooking.model.mongo.Event;
+import epa.patiem.ticketbooking.model.mongo.Ticket;
+import epa.patiem.ticketbooking.model.mongo.User;
 
 import java.util.Date;
 import java.util.List;

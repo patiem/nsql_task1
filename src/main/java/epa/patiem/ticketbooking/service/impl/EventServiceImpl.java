@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import epa.patiem.ticketbooking.model.Event;
-import epa.patiem.ticketbooking.repository.EventRepository;
+import epa.patiem.ticketbooking.model.mongo.Event;
+import epa.patiem.ticketbooking.repository.mongo.EventRepository;
 import epa.patiem.ticketbooking.service.EventService;
 
 import java.util.ArrayList;

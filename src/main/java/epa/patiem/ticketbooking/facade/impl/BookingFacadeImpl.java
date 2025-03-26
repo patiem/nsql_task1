@@ -2,11 +2,11 @@ package epa.patiem.ticketbooking.facade.impl;
 
 import org.springframework.stereotype.Component;
 import epa.patiem.ticketbooking.facade.BookingFacade;
-import epa.patiem.ticketbooking.model.Category;
-import epa.patiem.ticketbooking.model.Event;
-import epa.patiem.ticketbooking.model.Ticket;
-import epa.patiem.ticketbooking.model.User;
-import epa.patiem.ticketbooking.model.UserAccount;
+import epa.patiem.ticketbooking.model.mongo.Category;
+import epa.patiem.ticketbooking.model.mongo.Event;
+import epa.patiem.ticketbooking.model.mongo.Ticket;
+import epa.patiem.ticketbooking.model.mongo.User;
+import epa.patiem.ticketbooking.model.mongo.UserAccount;
 import epa.patiem.ticketbooking.service.EventService;
 import epa.patiem.ticketbooking.service.TicketService;
 import epa.patiem.ticketbooking.service.UserAccountService;
