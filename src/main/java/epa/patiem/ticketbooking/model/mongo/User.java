@@ -3,8 +3,9 @@ package epa.patiem.ticketbooking.model.mongo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Setter
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,5 +33,9 @@ public class User {
     @DBRef
     private List<Ticket> tickets = new ArrayList<>();
     private UserAccount account;
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
 
 }

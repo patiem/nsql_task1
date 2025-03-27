@@ -9,31 +9,33 @@ import epa.patiem.ticketbooking.repository.mongo.EventRepository;
 import epa.patiem.ticketbooking.repository.mongo.TicketRepository;
 import epa.patiem.ticketbooking.repository.mongo.UserRepository;
 import epa.patiem.ticketbooking.repository.sql.SqlEventRepository;
-import epa.patiem.ticketbooking.repository.sql.SqlTicketRepository;
 import epa.patiem.ticketbooking.repository.sql.SqlUserRepository;
-import epa.patiem.ticketbooking.service.converter.TicketConverter;
 import epa.patiem.ticketbooking.service.converter.UserConverter;
 import epa.patiem.ticketbooking.service.converter.EventConverter;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class SqlToMongoService {
 
-    private final UserRepository mongoUserRepository;
-    private final TicketRepository mongoTicketRepository;
-    private final EventRepository mongoEventRepository;
+    @Autowired
+    private UserRepository mongoUserRepository;
+    @Autowired
+    private TicketRepository mongoTicketRepository;
+    @Autowired
+    private EventRepository mongoEventRepository;
 
-    private final SqlUserRepository sqlUerRepository;
-    private final SqlTicketRepository sqlTicketRepository;
-    private final SqlEventRepository  sqlEventRepository;
+    @Autowired
+    private SqlUserRepository sqlUerRepository;
+    @Autowired
+    private SqlEventRepository  sqlEventRepository;
 
-    private final TicketConverter ticketConverter;
-    private final UserConverter userConverter;
-    private final EventConverter eventConverter;
+    @Autowired
+    private UserConverter userConverter;
+    @Autowired
+    private EventConverter eventConverter;
 
 
     public void migrate() {

@@ -1,24 +1,26 @@
 package epa.patiem.ticketbooking.model.sql;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import jakarta.persistence.Cacheable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import java.util.Objects;
 
-@Setter
+@Data
 @Getter
+@Setter
 @Entity
 @Table(name = "tickets")
 @Cacheable
@@ -60,37 +62,5 @@ public class SqlTicket {
         this.event = sqlEvent;
         this.place = place;
         this.category = category;
-    }
-
-
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SqlTicket sqlTicket = (SqlTicket) o;
-        return Objects.equals(id, sqlTicket.id) && Objects.equals(user, sqlTicket.user) && Objects.equals(event, sqlTicket.event) && Objects.equals(place, sqlTicket.place) && category == sqlTicket.category;
-    }
-
-    /**
-     * Hash code int.
-     *
-     * @return the int
-     */
-    public int hashCode() {
-        return Objects.hash(id, user, event, place, category);
-    }
-
-    /**
-     * To string string.
-     *
-     * @return the string
-     */
-    public String toString() {
-        return "{" +
-                "'id' : " + id +
-                ", 'userId' : " + user.getId() +
-                ", 'eventId' : " + event.getId() +
-                ", 'place' : " + place +
-                ", 'category' : '" + category +
-                "'}";
     }
 }

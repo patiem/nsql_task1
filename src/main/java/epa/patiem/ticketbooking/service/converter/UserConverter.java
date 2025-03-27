@@ -3,9 +3,7 @@ package epa.patiem.ticketbooking.service.converter;
 import epa.patiem.ticketbooking.model.mongo.User;
 import epa.patiem.ticketbooking.model.mongo.UserAccount;
 import epa.patiem.ticketbooking.model.sql.SqlUser;
-import epa.patiem.ticketbooking.model.sql.SqlUserAccount;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import epa.patiem.ticketbooking.model.sql.SqlUserAccount;import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
